@@ -1,0 +1,31 @@
+/* ワードクラウド関連のスタイル */
+.word-cloud-container text {
+  transition: all 0.3s ease-in-out;
+}
+
+.word-cloud-container text:hover {
+  filter: brightness(1.1);
+}
+
+.react-transform-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important; /* はみ出た要素も表示 */
+}
+
+.react-transform-component {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+}
+
+/* ズームコントロールのスタイル改善 */
+.zoom-controls button {
+  transition: all 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.zoom-controls button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+} 
