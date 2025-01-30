@@ -12,10 +12,12 @@ import (
 func main() {
 	var (
 		inputFile   = flag.String("input", "", "Input CSV file path")
-		outputFile  = flag.String("output", "", "Output JSON file path")
+		outputFile  = flag.String("output", "", "Output PNG file path")
 		minCount    = flag.Int("min-count", 2, "Minimum word count")
 		maxWords    = flag.Int("max-words", 100, "Maximum number of words")
 		colorScheme = flag.String("color", "blue", "Color scheme (blue/rainbow)")
+		width       = flag.Int("width", 800, "Image width in pixels")
+		height      = flag.Int("height", 600, "Image height in pixels")
 	)
 
 	flag.Parse()
@@ -32,6 +34,8 @@ func main() {
 		MinFontSize: 12,
 		MaxFontSize: 48,
 		ColorScheme: *colorScheme,
+		Width:       *width,
+		Height:      *height,
 	}
 
 	// プロセッサーの初期化
@@ -51,10 +55,10 @@ func main() {
 		log.Fatalf("出力ディレクトリの作成に失敗: %v", err)
 	}
 
-	// JSONファイルに出力
-	if err := processor.ExportJSON(wordCounts, *outputFile); err != nil {
-		log.Fatalf("JSONファイルの出力に失敗: %v", err)
+	// PNGファイルとして出力
+	if err := processor.ExportPNG(wordCounts, *outputFile); err != nil {
+		log.Fatalf("PNG画像の出力に失敗: %v", err)
 	}
 
-	log.Printf("ワードクラウドデータの生成が完了しました: %s", *outputFile)
+	log.Printf("ワードクラウド画像の生成が完了しました: %s", *outputFile)
 }

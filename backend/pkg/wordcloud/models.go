@@ -22,6 +22,8 @@ type Config struct {
 	MinFontSize int    // 最小フォントサイズ
 	MaxFontSize int    // 最大フォントサイズ
 	ColorScheme string // 色スキーム
+	Width       int    // 画像の幅
+	Height      int    // 画像の高さ
 }
 
 // defaultConfig はデフォルト設定を返す
@@ -32,6 +34,8 @@ func defaultConfig() Config {
 		MinFontSize: 12,
 		MaxFontSize: 48,
 		ColorScheme: "blue",
+		Width:       800,
+		Height:      600,
 	}
 }
 
